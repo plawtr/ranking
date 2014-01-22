@@ -56,7 +56,7 @@ class User
 	def complete activity
 		scores = {0 => 3, -1 => 1}
 		diff = activity.rank - self.rank
-		self.progress += scores[diff]
+		self.progress += scores[diff] || 0
 	end
 
 
