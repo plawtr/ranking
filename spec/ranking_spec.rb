@@ -32,6 +32,12 @@ describe User do
 		expect(user.rank).to eq(8)
 	end
 
+	it "should skip rank zero" do
+		7.times{user.add_progress(100)}
+		user.add_progress(105)
+		expect(user.rank).to eq(1)
+	end
+
 
 end
 

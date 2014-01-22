@@ -47,7 +47,7 @@ class User
 
 	def add_progress(number)
 		self.progress+=number
-		if self.progress >= 100 
+		if self.progress >= 100 && rank < 8 
 			self.rank += 1 
 			self.progress-=100
 		end
