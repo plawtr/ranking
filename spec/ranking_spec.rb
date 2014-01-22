@@ -43,8 +43,14 @@ end
 
 describe Activity do
 
+	let(:activity) {Activity.new} 
+
 	it "should initialize with a variable rank, default to -8" do
-		expect(Activity.new.rank).to eq(-8)
+		expect(activity.rank).to eq(-8)
+	end
+
+	it "should be able to initiaize an activity with a rank" do
+		expect(Activity.new(3).rank).to eq(3)
 	end
 
 end

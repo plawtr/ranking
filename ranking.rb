@@ -48,7 +48,7 @@ class User
 	def add_progress(number)
 		self.progress+=number
 		if self.progress >= 100 && rank < 8 
-			self.rank += 1 
+			self.rank == -1 ? self.rank+=2 : self.rank += 1 
 			self.progress-=100
 		end
 	end
@@ -58,11 +58,14 @@ class User
 end
 
 class Activity
-	def initialize
+
+	attr_accessor :rank
+
+		def initialize
 		@rank = -8
 		
 	end
-	attr_accessor :rank
+
 
 end
 	
