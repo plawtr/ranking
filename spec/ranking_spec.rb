@@ -30,6 +30,12 @@ describe User do
 		expect(user.progress).to eq(0) 
 	end
 
+	it "should take a user ranked -8 takes activity ranked -4 -> receives 160 progress, rank -7 and having earned 60 progress towards next rank" do
+		user.inc_progress(-4)
+		expect(user.rank).to eq(-7)
+		expect(user.progress).to eq(60) 
+	end
+
 # 	it "should spend progress increasing rank " do
 # 		user.add_progress(105)
 # 		expect(user.progress).to eq(5)
