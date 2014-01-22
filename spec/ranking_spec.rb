@@ -22,6 +22,11 @@ describe User do
 		expect(user.rank).to eq(-7)
 	end
 
+	it "should spend progress increasing rank " do
+		user.add_progress(105)
+		expect(user.progress).to eq(5)
+	end
+
 
 end
 
