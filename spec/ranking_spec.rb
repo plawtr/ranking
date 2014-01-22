@@ -24,8 +24,10 @@ describe User do
  	end
 
 	it "should increase rank once progress reaches 100" do
-		user.add_progress(100)
+		user.inc_progress(-7)
+		user.inc_progress(-5)
 		expect(user.rank).to eq(-7)
+		expect(user.progress).to eq(0) 
 	end
 
 # 	it "should spend progress increasing rank " do

@@ -51,20 +51,29 @@ class User
 	def inc_progress activity_rank
 		raise "Activity Rank out of range value" unless RANK.include?(activity_rank)
 		diff = RANK.index(self.rank)-RANK.index(activity_rank)
-		
+
 		if SCORES.include?(diff)
-			self.progress += SCORES[diff]
+			self.add_progress(SCORES[diff])
 		elsif diff < 0
-			self.progress += 10 * diff * diff
+			self.add_progress(10 * diff * diff)
 		else
 			return
 		end
-
 	end
 
-	def add 
+	def add_progress progress_points
+		self.progress += progress_points
+		while self.progress >= 100 do 
+			self.progress-=100
+			add_rank
+		end
+ 	end
+
+	def add_rank	 
+		self.rank = RANK[RANK.index(self.rank)+1] if RANK.index(self.rank) < 8
+	end
 		
-	end
+
 
 
 	# def add_progress(number)
