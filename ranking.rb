@@ -39,7 +39,10 @@
 
 
 class User 
-
+	def initialize
+		@rank = -8
+	end
+	attr_reader :rank
 
 
 end
