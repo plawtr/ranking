@@ -57,9 +57,9 @@ class User
 		self.rank = 8 if self.rank > 8
 	end
 
-	def complete activity
+	def inc_progress activity_rank
 		scores = {0 => 3, -1 => 1}
-		diff = activity.rank - self.rank
+		diff = activity_rank - self.rank
 		return if diff < -1
 		self.add_progress(scores[diff] || diff*diff*10)
 	end

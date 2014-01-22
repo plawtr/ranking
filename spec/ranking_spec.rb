@@ -40,30 +40,30 @@ describe User do
 	end
 
 	it "should increment 3 progress if rank of user -8 and rank activity -8" do
-		user.complete(activity)
+		user.inc_progress (-8)
 		expect(user.progress).to eq(3)
 	end
 
 	it "should increment 1 progress if rank of user -7 and rank activity -8" do
 		user.add_progress(100)
-		user.complete(activity)
+		user.inc_progress(-8)
 		expect(user.progress).to eq(1)
 	end
 
 	it "should increment 0 progress if rank of user -6 and rank activity -8" do
 		2.times{user.add_progress(100)}
-		user.complete(activity)
+		user.inc_progress(-8)
 		expect(user.progress).to eq(0)
 	end
 
 	it "should increment 90 progress if rank of user -8 and rank activity -5" do
 		
-		user.complete(Activity.new(-5))
+		user.inc_progress(-5)
 		expect(user.progress).to eq(90)
 	end
 
 	it "should increment 160 progress, if rank of user -8 and rank activity -4, i.e. rank -7 and 60 progress" do
-		user.complete(Activity.new(-4))
+		user.inc_progress(-4)
 		expect(user.progress).to eq(60)
 		expect(user.rank).to eq(-7)
 	end
