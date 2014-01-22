@@ -17,6 +17,11 @@ describe User do
 		expect(user.progress).to eq(1)
 	end
 
+	it "should increase rank once progress reaches 100" do
+		user.add_progress(100)
+		expect(user.rank).to eq(-7)
+	end
+
 
 end
 

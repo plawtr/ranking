@@ -39,11 +39,17 @@
 
 
 class User 
+		attr_accessor :rank, :progress
+
 	def initialize
-		@rank, @progress = -8, 0
-		
+		@rank, @progress = -8, 0	
 	end
-	attr_reader :rank, :progress
+
+	def add_progress(number)
+		self.progress+=number
+	end
+
+
 
 end
 
@@ -52,7 +58,7 @@ class Activity
 		@rank = -8
 		
 	end
-	attr_reader :rank
+	attr_accessor :rank
 
 end
 	
