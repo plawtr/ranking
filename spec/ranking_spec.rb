@@ -68,6 +68,12 @@ describe User do
 		expect(user.rank).to eq(-7)
 	end
 
+	it "should check small progress raises rank" do
+		2.times{user.add_progress(99)}
+		expect(user.rank).to eq(-7)
+		expect(user.progress).to eq(98)
+	end
+
 
 end
 
