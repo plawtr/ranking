@@ -74,6 +74,12 @@ describe User do
 		expect(user.progress).to eq(98)
 	end
 
+	it "should for user of -1 completing activity ranking +1, increments progress by 10." do
+		7.times{user.add_progress(100)}
+		user.inc_progress(1)
+		expect(user.progress).to eq(10)
+	end
+
 
 end
 

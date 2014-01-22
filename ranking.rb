@@ -59,7 +59,8 @@ class User
 
 	def inc_progress activity_rank
 		scores = {0 => 3, -1 => 1}
-		diff = activity_rank - self.rank
+		diff =  activity_rank*self.rank>0 ? activity_rank - self.rank : activity_rank - self.rank - 1
+		#diff =  activity_rank - self.rank
 		return if diff < -1
 		self.add_progress(scores[diff] || diff*diff*10)
 	end
