@@ -39,10 +39,10 @@ describe User do
 		expect(user.rank).to eq(1)
 	end
 
-	# it "should increment 3 progress if rank of user -8 and rank activity -8" do
-	# 	user.complete(activity)
-	# 	expect
-	# end
+	it "should increment 3 progress if rank of user -8 and rank activity -8" do
+		user.complete(activity)
+		expect(user.progress).to eq(3)
+	end
 
 
 end
@@ -60,7 +60,7 @@ describe Activity do
 	end
 
 	it "should be impossible to create an activity with rank -9" do
-		expect(Activity.new(9)).to raise_error(RuntimeError)
+		expect{Activity.new(9)}.to raise_error(RuntimeError)
 	end
 
 end

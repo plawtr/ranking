@@ -54,7 +54,6 @@ class User
 	end
 
 
-
 end
 
 class Activity
@@ -62,6 +61,7 @@ class Activity
 	attr_accessor :rank
 
 		def initialize rank=-8
+		raise "Activity Rank out of range value" unless [-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8].include?(rank)
 		@rank = rank
 		
 	end
