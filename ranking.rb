@@ -40,12 +40,17 @@
 
 class User 
 	def initialize
-		@rank = -8
+		@rank, @progress = -8, 0
+		
 	end
-	attr_reader :rank
-
+	attr_reader :rank, :progress
 
 end
+
+class Activity
+
+	end
+	
 
 
 
