@@ -35,3 +35,15 @@
 # user.progress # => 0 # progress is now zero
 # user.rank # => -7 # rank was upgraded to -7
 # Note: Codewars no longer uses this algorithm for its own ranking system. It uses a pure Math based solution that gives consistent results no matter what order a set of ranked activities are completed at.
+
+
+
+class User 
+
+
+
+end
+
+
+
+
