@@ -53,6 +53,10 @@ class User
 		end
 	end
 
+	def complete activity
+		self.progress += 3
+	end
+
 
 end
 
