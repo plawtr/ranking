@@ -27,6 +27,11 @@ describe User do
 		expect(user.progress).to eq(5)
 	end
 
+	it "should not progress beyond rank 8" do
+		17.times{user.add_progress(101)}
+		expect(user.rank).to eq(8)
+	end
+
 
 end
 
