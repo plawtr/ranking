@@ -3,6 +3,7 @@ require_relative "../ranking"
 describe User do
 
 	let(:user) {User.new}
+	let(:activity) {Activity.new}
 
 	it "should initialize with a minus 8 rank" do 
 		expect(user.rank).to eq(-8) 
@@ -38,6 +39,11 @@ describe User do
 		expect(user.rank).to eq(1)
 	end
 
+	# it "should increment 3 progress if rank of user -8 and rank activity -8" do
+	# 	user.complete(activity)
+	# 	expect
+	# end
+
 
 end
 
@@ -51,6 +57,10 @@ describe Activity do
 
 	it "should be able to initiaize an activity with a rank" do
 		expect(Activity.new(3).rank).to eq(3)
+	end
+
+	it "should be impossible to create an activity with rank -9" do
+		expect(Activity.new(9)).to raise_error(RuntimeError)
 	end
 
 end

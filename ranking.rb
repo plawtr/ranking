@@ -61,8 +61,8 @@ class Activity
 
 	attr_accessor :rank
 
-		def initialize
-		@rank = -8
+		def initialize rank=-8
+		@rank = rank
 		
 	end
 
