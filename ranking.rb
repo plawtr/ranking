@@ -46,8 +46,9 @@ class User
 	end
 
 	def add_progress(number)
-		self.progress+=number % 100
-		add_rank(number/100)
+		self.progress+=number 
+		add_rank(self.progress/100) 
+		self.progress = self.progress % 100
 	end
 
 	def add_rank (number)
