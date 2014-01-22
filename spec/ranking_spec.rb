@@ -62,6 +62,12 @@ describe User do
 		expect(user.progress).to eq(90)
 	end
 
+	it "should increment 160 progress, if rank of user -8 and rank activity -4, i.e. rank -7 and 60 progress" do
+		user.complete(Activity.new(-4))
+		expect(user.progress).to eq(60)
+		expect(user.rank).to eq(-7)
+	end
+
 
 end
 
