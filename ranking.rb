@@ -39,47 +39,67 @@
 
 
 class User 
-		attr_accessor :rank, :progress
+	attr_accessor :rank, :progress
+	RANK = [-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8]
+	PROGR = [0,1,2,3,4,5,6,7,8]
+	SCORES = {0 => 3, 1 => 1}
 
 	def initialize
-		@rank, @progress = -8, 0	
-	end
-
-	def add_progress(number)
-		self.progress+=number 
-		add_rank(self.progress/100) 
-		self.progress = self.progress % 100
-	end
-
-	def add_rank (number)
-		number += 1 if number >= -self.rank
-		self.rank += number
-		self.rank = 8 if self.rank > 8
+		@rank, @progress = RANK[0], PROGR[0]	
 	end
 
 	def inc_progress activity_rank
-		scores = {0 => 3, -1 => 1}
-		diff =  activity_rank*self.rank>0 ? activity_rank - self.rank : activity_rank - self.rank - 1
-		#diff =  activity_rank - self.rank
-		return if diff < -1
-		self.add_progress(scores[diff] || diff*diff*10)
+		raise "Activity Rank out of range value" unless RANK.include?(activity_rank)
+		diff = RANK.index(self.rank)-RANK.index(activity_rank)
+		
+		if SCORES.include?(diff)
+			self.progress += SCORES[diff]
+		elsif diff < 0
+			self.progress += 10 * diff * diff
+		else
+			return
+		end
+
 	end
 
-
-end
-
-class Activity
-
-	attr_accessor :rank
-
-		def initialize rank=-8
-		raise "Activity Rank out of range value" unless [-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8].include?(rank)
-		@rank = rank
+	def add 
 		
 	end
 
 
+	# def add_progress(number)
+	# 	self.progress+=number 
+	# 	add_rank(self.progress/100) 
+	# 	self.progress = self.progress % 100
+	# end
+
+	# def add_rank (number)
+	# 	number += 1 if number >= -self.rank
+	# 	self.rank += number
+	# 	self.rank = 8 if self.rank > 8
+	# end
+
+	# def inc_progress activity_rank
+	# 	scores = {0 => 3, -1 => 1}
+	# 	diff =  activity_rank*self.rank > 0 ? activity_rank - self.rank : activity_rank.abs - self.rank.abs + 1
+	# 	return if diff < -1 || self.rank > activity_rank
+	# 	self.add_progress(scores[diff] || diff*diff*10)
+	# end
+
+
 end
+
+# class Activity
+
+# 	attr_accessor :rank
+
+# 		def initialize rank=-8
+# 		raise "Activity Rank out of range value" unless [-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8].include?(rank)
+# 		@rank = rank
+		
+# 	end
+
+# end
 	
 
 
