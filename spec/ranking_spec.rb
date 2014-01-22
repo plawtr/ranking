@@ -1,13 +1,20 @@
 require_relative "../ranking"
 
-describe User do 
+describe User do
+
+	let(:user) {User.new}
 
 	it "should initialize with a minus 8 rank" do 
-		expect(User.new.rank).to eq(-8) 
+		expect(user.rank).to eq(-8) 
 	end
 
 	it "should initialize with 0 progress" do
-		expect(User.new.progress).to eq(0)
+		expect(user.progress).to eq(0)
+	end
+
+	it "should be able to increse progress value" do
+		user.add_progress(1)
+		expect(user.progress).to eq(1)
 	end
 
 

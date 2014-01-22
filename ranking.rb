@@ -48,8 +48,13 @@ class User
 end
 
 class Activity
-
+	def initialize
+		@rank = -8
+		
 	end
+	attr_reader :rank
+
+end
 	
 
 
